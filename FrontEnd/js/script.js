@@ -116,8 +116,21 @@ function modeEdition() {
     barreEdition.style.display = "flex";
     btnModifier.style.display = "inline-block";
     btnLogin.textContent = "logout";
+    
+
+    if (btnLogin.textContent = "logout"){
+      btnLogin.addEventListener("click", function (){
+        localStorage.removeItem("token");
+        barreEdition.style.display = "none";
+        
+        btnLogin.textContent = "login";
+        window.location.href = 'index.html';
+      })
+    }
   }
 }
+
+
 
 // Sélection des éléments nécessaires pour la modification
 const btnModifier = document.querySelector(".modification");

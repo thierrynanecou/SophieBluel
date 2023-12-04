@@ -27,10 +27,11 @@ console.log(inputPassword);
         if (response.token) {
             // Stocker le token dans le localStorage
             localStorage.setItem('token', response.token);
-
+console.log(response.token);
             // Rediriger l'utilisateur ou effectuer d'autres actions en cas de connexion réussie
             window.location.href = 'index.html'; 
         } else {
+            
             // Gérer les erreurs ou afficher un message d'erreur si la connexion a échoué
             console.log('La connexion a échoué. Veuillez réessayer.');
         }
