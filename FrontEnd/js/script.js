@@ -215,9 +215,9 @@ function addImage(file, imageTitle, category) {
 
   let selectedFile = "";
 
-  formData.append("image", file);
-  formData.append("title", imageTitle);
-  formData.append("category", category);
+  formData.append("image", "");
+  formData.append("title", "");
+  formData.append("category", "");
 
   // Écouteur d'événement pour le changement de fichier
   inputAjouterPhoto.addEventListener("change", function () {
@@ -265,7 +265,7 @@ function addImage(file, imageTitle, category) {
     }
   });
 
-  // Créer un objet FormData pour envoyer les données
+  
 
   // Écouteur d'événement pour le bouton de validation
   validImgButton.addEventListener("click", function (e) {
