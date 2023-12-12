@@ -301,7 +301,11 @@ footer nav ul {
   line-height: normal;
 }
 
-.buttonItem:hover {
+.buttonItem:hover{
+  background-color: #1d6154;
+  color: white;
+}
+.active{
   background-color: #1d6154;
   color: white;
 }

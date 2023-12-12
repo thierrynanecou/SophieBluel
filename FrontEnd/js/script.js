@@ -45,7 +45,7 @@ async function showCategories() {
   // Création d'un élément pour afficher toutes les catégories
   const div = document.createElement("div");
   div.textContent = "Tous";
-  div.className = "buttonItem";
+  div.className = "buttonItem active";
   div.addEventListener("click", () => {
     // Afficher tous les éléments
     const figures = document.getElementsByClassName("galleryFigure");
@@ -65,19 +65,8 @@ async function showCategories() {
     const div = document.createElement("div");
     div.textContent = categorie.name;
     div.className = "buttonItem";
-    div.addEventListener("click", () => {
-      // Filtrer et afficher les éléments en fonction de la catégorie sélectionnée
-      const figures = document.getElementsByClassName("galleryFigure");
-      for (let figure of figures) {
-        const category = figure.getAttribute("data-category");
-        if (category == categorie.name) {
-          figure.style.display = "block";
-        } else {
-          figure.style.display = "none";
-        }
-      }
-    });
     categories.appendChild(div);
+    
 
     // Ajouter les catégories comme options pour le modal2
     const option = document.createElement("option");
@@ -85,7 +74,35 @@ async function showCategories() {
     option.textContent = categorie.name;
     select.appendChild(option);
   });
+  const btncategorie = document.getElementsByClassName("buttonItem");
+  
+  for (let btn of btncategorie ) {
+    
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      // Filtrer et afficher les éléments en fonction de la catégorie sélectionnée
+      for (let elem of btncategorie){
+        elem.classList.remove("active");
+      }
+e.target.classList.add("active");
+    
+      const figures = document.getElementsByClassName("galleryFigure");
+      for (let figure of figures) {
+        const category = figure.getAttribute("data-category");
+        if (btn.textContent == "Tous"){
+          figure.style.display = "block";
+        }else if (btn.textContent == category ) {
+          figure.style.display = "block";
+        } else {
+          figure.style.display = "none";
+          
+        }
+      }
+    });
+  }
+
 }
+
 async function deleteWork (id) {
    await fetch ("http://localhost:5678/api/works/"+id,{
     method : "DELETE", 
