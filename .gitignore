@@ -1,4 +1,5 @@
-node_modules
-SophieBluel
+/node_modules
+/SophieBluel
 package-lock.json
 package.json
+.git
